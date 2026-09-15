@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>API Documentation Agent</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="shell">
+  <aside>
+    <div class="brand">⚡ API Agent</div>
+    <div class="muted">Autonomous Documentation Engineer</div>
+    <nav>
+      <a class="active">Dashboard</a>
+      <a href="/docs-ui">Swagger Docs ↗</a>
+    </nav>
+    <div class="side-card">
+      <span class="dot"></span> Agent online
+      <small>Local repository connected</small>
+    </div>
+  </aside>
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">ENGINEER INNOVATIONS CHALLENGE</p>
+        <h1>API Documentation Agent</h1>
+        <p class="subtitle">Detect code changes → understand routes → update OpenAPI → validate → publish.</p>
+      </div>
+      <button class="primary" onclick="runScan()">🔍 Scan Repository</button>
+    </header>
+
+    <section class="stats">
+      <div class="stat"><span>API Routes</span><strong id="routeCount">—</strong></div>
+      <div class="stat"><span>New Changes</span><strong id="newCount">—</strong></div>
+      <div class="stat"><span>Validation</span><strong id="valid">—</strong></div>
+      <div class="stat"><span>Agent Status</span><strong>● Ready</strong></div>
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <div class="panel-head"><h2>Agent Workflow</h2><span id="status">Waiting for scan</span></div>
+        <div class="flow">
+          <div>📦<b>Repository</b><small>Git code</small></div><i>→</i>
+          <div>🔎<b>Detect</b><small>Changes</small></div><i>→</i>
+          <div>🧠<b>Analyze</b><small>Routes</small></div><i>→</i>
+          <div>📝<b>Generate</b><small>OpenAPI</small></div><i>→</i>
+          <div>✅<b>Validate</b><small>Spec</small></div><i>→</i>
+          <div>🚀<b>Publish</b><small>Swagger</small></div>
+        </div>
+        <div class="actions">
+          <button onclick="compare()">Compare Documentation</button>
+          <button onclick="generate()">Generate & Validate</button>
+          <a class="button" href="/docs-ui">Open Swagger Docs</a>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h2>Detected API Routes</h2></div>
+        <div id="routes" class="routes empty">Scan the repository to inspect routes.</div>
+      </div>
+
+      <div class="panel wide">
+        <div class="panel-head"><h2>Change Intelligence</h2><span id="confidence">Ready</span></div>
+        <div id="changes" class="changes">No comparison yet.</div>
+      </div>
+
+      <div class="panel wide">
+        <div class="panel-head"><h2>Agent Audit Log</h2><button onclick="loadAudit()">Refresh</button></div>
+        <div id="audit" class="audit"></div>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>

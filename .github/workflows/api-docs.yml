@@ -1,0 +1,19 @@
+name: API Documentation Agent
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  update-api-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Generate OpenAPI
+        run: python scripts/generate_openapi.py
+      # For final submission, add your hosting/deployment command here.
+      # Example: deploy the generated docs to GitHub Pages.

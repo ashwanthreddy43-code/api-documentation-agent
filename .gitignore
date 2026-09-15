@@ -1,0 +1,5 @@
+.venv/
+__pycache__/
+*.pyc
+.agent_state.json
+sample_backend/openapi.generated.json
